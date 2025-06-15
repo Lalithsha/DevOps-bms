@@ -31,6 +31,7 @@ app.post("/signup", async (req:Request, res:Response):Promise<any>=>{
         return;
     } catch (error) {
         console.error("Error creating user:", error);
+        console.log("Error details:", error);
         res.status(500).send("Internal Server Error");
         return;
     }
