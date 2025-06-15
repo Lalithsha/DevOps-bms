@@ -17,7 +17,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ubuntu
           key: ${{ secrets.PRIVATE_SSH_KEY }}
-          # port: ${{ secrets.PORT }}
+          port: 22 # Explicitly set (default is 22)
           script: |
             echo "Starting deployment to staging server..."
             cd DevOps-bms
