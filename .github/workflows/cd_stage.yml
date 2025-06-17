@@ -24,10 +24,11 @@ jobs:
             echo "Pulling latest changes..."
             git pull origin main
             echo "Checking npm install existence. if not then installing..."
-             which npm || (echo "npm not found, installing Node.js properly" && curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs)
+            which npm || (echo "npm not found, installing Node.js properly" && curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - && sudo apt-get install -y nodejs)
             echo "Checking pnpm existence. if not then installing..."
-            which pnpm || npm install -g pnpm
-            echo "Installing dependencies..."
+            which pnpm || sudo npm install -g pnpm
+            echo "Checking pm2 existence. if not then installing..."
+            which pm2 || sudo npm install -g pm2
             pnpm install
             echo "Building project..."
             pnpm run build
