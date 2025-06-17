@@ -23,6 +23,8 @@ jobs:
             cd DevOps-bms
             echo "Pulling latest changes..."
             git pull origin main
+            echo "Checking pnpm existence. if not then installing..."
+            which pnpm || npm install -g pnpm
             echo "Installing dependencies..."
             pnpm install
             echo "Building project..."
